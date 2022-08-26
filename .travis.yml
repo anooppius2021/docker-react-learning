@@ -4,3 +4,15 @@ services:
   - docker
 before_install:
   - docker build -t docker-react-learning -f Dockerfile.dev .
+
+deploy:
+  provider: elasticbeanstalk
+  region: "us-east-1"
+  app: "docker-react-learning"
+  env: "Dockerreactlearning-env"
+  bucket_name: "elasticbeanstalk-us-east-1-730471093388"
+  bucket_path: "docker-react-learning"
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: $AWS_SECRET_KEY

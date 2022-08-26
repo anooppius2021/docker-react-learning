@@ -1,6 +1,6 @@
 sudo: required
-language: node_js
 services:
   - docker
 before_install:
+  - gem install rake
   - docker build -t docker-react-learning -f Dockerfile.dev .
